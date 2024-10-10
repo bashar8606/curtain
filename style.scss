@@ -92,6 +92,23 @@ body {
   font-family: "font-primary", sans-serif;
 }
 
+.ratio {
+  position: relative;
+  width: 100%;
+  &::before {
+    display: block;
+    padding-top: var(--bs-aspect-ratio);
+    content: "";
+  }
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
 #wrap-texture {
   display: flex;
   flex-direction: column; /* Stack planes vertically */
@@ -157,7 +174,7 @@ body {
 
 .col-md-6 {
   width: 100%;
-  @include md {
+  @include min(992) {
     width: 50%;
   }
 }
@@ -195,10 +212,95 @@ body {
   }
 }
 
-
 .sec-listing {
   background-color: #000;
-  @include lg{
+  padding: 60px 0;
+  overflow: hidden;
+  @include lg {
     padding: 100px 0;
+  }
+
+  .cover-img .title-wrap {
+    flex: 1 0;
+    width: 100%;
+  }
+  .count {
+    flex: 0 0 auto;
+    width: auto;
+
+    font-size: 42px;
+    color: rgba(255, 255, 255, 0.23);
+    font-weight: 600;
+  }
+
+  .plane {
+    border-radius: 32px;
+    overflow: hidden;
+    min-height: 400px;
+    @include lg {
+      height: 70vh;
+    }
+  }
+  img {
+    border-radius: 32px;
+    overflow: hidden;
+  }
+
+  .row {
+    --bs-gutter-x: 30px;
+    @include lg {
+      --bs-gutter-x: 100px;
+    }
+  }
+
+  .col-left {
+    flex: 0 0 auto;
+    width: 100%;
+    @include md {
+      width: 40%;
+      border-right: 1px solid rgba(255, 255, 255, 0.188);
+    }
+  }
+  .col-right {
+    flex: 0 0 auto;
+    width: 100%;
+    @include md {
+      width: 60%;
+    }
+  }
+
+  .title {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 300;
+    margin-top: 0;
+    @include lg {
+      font-size: 41px;
+    }
+  }
+  .description {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 400;
+    @include md {
+      font-size: 18px;
+    }
+  }
+}
+.d-flex {
+  display: flex;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #ff00ff;
+  color: #fff;
+  border-radius: 10rem;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 10px 22px;
+  transition: 0.4s all ease;
+  &:hover{
+    background-color: #ca00ca;
   }
 }

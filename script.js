@@ -84,7 +84,6 @@ function WEBGL(set) {
         start: "top bottom", 
         end: "top 50%",  
         scrub: 0.5,   
-        markers: true      
       }
     });
   }
